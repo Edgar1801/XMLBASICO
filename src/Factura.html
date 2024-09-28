@@ -1,0 +1,86 @@
+<!DOCTYPE invoice [
+        <!ELEMENT invoice (businessInfo, billTo, shipTo, invoiceDetails, items, totals)>
+<!ELEMENT businessInfo (businessName, contactDetails)>
+<!ELEMENT businessName (#PCDATA)>
+<!ELEMENT contactDetails (phone, email, address, website)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+
+<!ELEMENT billTo (clientName, address)>
+<!ELEMENT clientName (#PCDATA)>
+
+<!ELEMENT shipTo (clientName, address)>
+
+<!ELEMENT invoiceDetails (invoiceNumber, date, terms)>
+<!ELEMENT invoiceNumber (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT terms (#PCDATA)>
+
+<!ELEMENT items (item+)>
+<!ELEMENT item (productName, description, quantity, rate, amount)>
+<!ELEMENT productName (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT rate (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+
+<!ELEMENT totals (subtotal, tax, shipping, total)>
+<!ELEMENT subtotal (#PCDATA)>
+<!ELEMENT tax (#PCDATA)>
+<!ELEMENT shipping (#PCDATA)>
+<!ELEMENT total (#PCDATA)>
+]>
+
+<invoice>
+    <businessInfo>
+        <businessName>Nombre de la Empresa</businessName>
+        <contactDetails>
+            <phone>(000) 000-0000</phone>
+            <email>correo@empresa.com</email>
+            <address>Calle, Ciudad, Código Postal</address>
+            <website>www.empresa.com</website>
+        </contactDetails>
+    </businessInfo>
+
+    <billTo>
+        <clientName>Nombre del Cliente</clientName>
+        <address>Calle, Ciudad, Código Postal</address>
+    </billTo>
+
+    <shipTo>
+        <clientName>Nombre del Cliente</clientName>
+        <address>Calle, Ciudad, Código Postal</address>
+    </shipTo>
+
+    <invoiceDetails>
+        <invoiceNumber>12345</invoiceNumber>
+        <date>dd/mm/yyyy</date>
+        <terms>30 días</terms>
+    </invoiceDetails>
+
+    <items>
+        <item>
+            <productName>Producto o Servicio 1</productName>
+            <description>Descripción del producto o servicio</description>
+            <quantity>2</quantity>
+            <rate>50.00</rate>
+            <amount>100.00</amount>
+        </item>
+        <item>
+            <productName>Producto o Servicio 2</productName>
+            <description>Descripción del producto o servicio</description>
+            <quantity>1</quantity>
+            <rate>75.00</rate>
+            <amount>75.00</amount>
+        </item>
+    </items>
+
+    <totals>
+        <subtotal>175.00</subtotal>
+        <tax>17.50</tax>
+        <shipping>10.00</shipping>
+        <total>202.50</total>
+    </totals>
+</invoice>

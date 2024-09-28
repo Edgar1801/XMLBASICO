@@ -1,0 +1,55 @@
+DOCUMENTO 1
+
+<?xml version="1.0"?>
+<documento>
+  <p>Mi Primer <destacar importancia=1>documento XML</destacar></p>
+  <p>Comienza con la etiqueta <documento&gt;</p>
+  <p>A continuacion colocamos un elemento sin contenido</p>
+  <imagen fichero="imagen.gif"/>
+</documento>
+
+Errores
+    1. Sintaxis
+        importancia=1 debe de tener comillas en el numero
+            importancia="1"
+    2. Secuencia de escape
+        En la línea <p>Comienza con la etiqueta se usa &gt pero deberia ser &lt y &gt para el cierre
+            &lt;documento&gt;
+
+Código corregido
+
+<?xml version="1.0"?>
+<documento>
+  <p>Mi Primer <destacar importancia="1">documento XML</destacar></p>
+  <p>Comienza con la etiqueta &lt;documento&gt;</p>
+  <p>A continuacion colocamos un elemento sin contenido</p>
+  <imagen fichero="imagen.gif"/>
+</documento>
+
+
+DOCUMENTO 2
+
+<?xml version="1.0"?>
+<libros>
+  <libro id="quijote">
+    <titulo>El Quijote</titulo>
+    <autor nombre=cervantes nombre=cervantes>
+    <descripcion>Es el m¡ejor libro de cervantes.</descripcion>
+  </libro>
+</libros>
+
+Errores
+    1. Atributos sin comillas en la etiqueta autor ademas de estar duplicado
+    2. Caracter especial invalido en descripcion
+    3. Etiqueta de cierre en mayusculas
+
+Código corregido
+
+<?xml version="1.0"?>
+<libros>
+  <libro id="quijote">
+    <titulo>El Quijote</titulo>
+    <autor nombre="cervantes"></autor>
+    <descripcion>Es el mejor libro de Cervantes.</descripcion>
+  </libro>
+</libros>
